@@ -1,26 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import { Aside } from './components/aside';
+import Note from './components/aside/components/notes';
+import Users from './components/aside/components/users';
+import { Header } from './components/header';
+import Container from './container';
 
-function App() {
+
+const App: React.FC = () => {
+  const [page, setPage] = useState('posts');
+  const [filter, setFilter] = useState('popular');
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container>
+      <Aside page={page} setPage={setPage} />
+      <div>
+        {page === 'notes' ? <Note /> : page === 'users' ? <Users /> : <Header filter={filter} setFilter={setFilter} />}
+      </div>
+    </Container>
   );
 }
 
 export default App;
+
+
+
+
