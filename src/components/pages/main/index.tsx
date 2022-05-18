@@ -4,6 +4,7 @@ import { Photo, MainContent } from './style';
 import 'simplebar/dist/simplebar.min.css';
 import { filterFavorites, sortByNew, sortByPopular } from '../../../redux/main/actions';
 import SimpleBar from 'simplebar-react';
+import { RootState } from '../../../redux/store';
 
 
 type Props = {
@@ -13,7 +14,8 @@ type Props = {
 export const Main: React.FC<Props> = props => {
     const { filter } = props;
     const dispatch = useDispatch();
-    const filtered = useSelector((state: any) => state.home.info);
+    const filtered = useSelector((state: RootState) => state.home.info);
+
 
     useEffect(() => {
         if (filter === 'popular') {
@@ -26,14 +28,16 @@ export const Main: React.FC<Props> = props => {
     }, [filter]);
 
     return (
-        <SimpleBar style={{height: 700}}>
-   <MainContent>
-                {filtered.map((item: any) => {
-                    return <Photo key={item.popular}>
-                        <img src={item.url} /> </Photo>
-                })}
+        <MainContent>
+            <SimpleBar style={{ maxHeight: '100%' }}>
+                <div>
+                    {filtered.map((item: any) => {
+                        return <Photo key={item.popular}>
+                            <img src={item.url} /> </Photo>
+                    })}
+                </div>
+            </SimpleBar>
         </MainContent>
-        </SimpleBar>
-     
+
     )
 };

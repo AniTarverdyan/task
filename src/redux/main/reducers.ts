@@ -41,7 +41,7 @@ const initialState = {
   ],
 }
 
-export const homeReducer = (state = initialState, action: any) => {
+export const homeReducer = (state = initialState, action: {type:string}) => {
   let newState;
 
   switch (action.type) {

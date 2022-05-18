@@ -8,20 +8,13 @@ const Container = styled.body`
 
     &>div:first-child {
         flex: 0;
-        width: 1543px;
+        width: 1500px;
     }
 
     &>div:last-child {
         display: flex;
         flex-direction: column;
-        flex: 1;
-
-        &*:first-child {
-            flex: 0;
-        }
-        &*:last-child {
-            flex: 1;
-        }
+        flex: 1;  
     }
 `
 export default Container;

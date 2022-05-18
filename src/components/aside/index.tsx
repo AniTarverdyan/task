@@ -1,5 +1,8 @@
 
 import { Section } from "./style";
+import shoppingListIcon from "../../Assets/icons/shopping-list.svg";
+import dashboardInterface from "../../Assets/icons/dashboard-interface.svg";
+import group from "../../Assets/icons/Group.svg"
 
 type Props = {
   page: string;
@@ -14,27 +17,33 @@ export const Aside: React.FC<Props> = props => {
 
   return (
     <Section>
-      <a
-        className={page === 'posts' ? 'active' : ''}
-        onClick={onClick('posts')}
-      >
-        <i className="material-icons">menu</i>
-
-      </a>
-      <a
-        className={page === 'notes' ? 'active' : ''}
-        onClick={onClick('notes')}
-      >
-        <i className="material-icons">event_note</i>
-
-      </a>
-      <a
-        className={page === 'users' ? 'active' : ''}
-        onClick={onClick('users')}
-      >
-        <i className="material-icons">group</i>
-
-      </a>
+      <div>
+        <a href="/#"
+          className={page === 'posts' ? 'active' : ''}
+          onClick={onClick('posts')}
+        >
+          {'active' ? <span></span> : ''}
+          <img src={dashboardInterface} />
+        </a>
+      </div>
+      <div>
+        <a href="/#"
+          className={page === 'notes' ? 'active' : ''}
+          onClick={onClick('notes')}
+        >
+          {'active' ? <span></span> : ''}
+          <img src={shoppingListIcon} />
+        </a>
+      </div>
+      <div>
+        <a href="/#"
+          className={page === 'users' ? 'active' : ''}
+          onClick={onClick('users')}
+        >
+          {'active' ? <span></span> : ''}
+          <img src={group} />
+        </a>
+      </div>
     </Section>
   );
 };
