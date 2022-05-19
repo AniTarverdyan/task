@@ -19,17 +19,17 @@ export const Header: React.FC<Props> = props => {
         <Title>Courses</Title>
         <Items>
           <NavItem>
-            <a href="/#"
+            <a 
               className={filter === 'popular' ? 'active' : ''}
               onClick={onFilter('popular')}>Popular{'active'? <span></span> : ''}</a>
           </NavItem>
           <NavItem>
-            <a href="/#"
+            <a 
               className={filter === 'favorite' ? 'active' : ''}
               onClick={onFilter('favorite')}>Favorite{'active'? <span></span> : ''}</a>
           </NavItem>
           <NavItem>
-            <a href="/#"
+            <a 
               className={filter === 'new' ? 'active' : ''}
               onClick={onFilter('new')}>New{'active'? <span></span> : ''}</a>
           </NavItem>
