@@ -20,6 +20,7 @@ code {
     background-color: #FFE4D6;
     width: 22px !important;
     border-radius: none;
+    visibility: visible !important;
 }
 
 @media (max-width: 743px) {
@@ -35,6 +36,7 @@ code {
 .simplebar-scrollbar::before {
     border-radius: none !important;
     background-color: #C4C4C4 !important;
+    content: inherit;
 }
 
 .scrollable-content {

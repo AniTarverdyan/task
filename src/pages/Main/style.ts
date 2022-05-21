@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const MainContent = styled.div`
+const MainContent = styled.div`
 display: flex;
 flex-direction: column;
 justify-content: center;
@@ -13,7 +13,7 @@ min-height: 0;
 }
 }
 `
-export const Photo = styled.image `
+const Photo = styled.image `
 &>img {
     width: 100%;
     height: 544px;
@@ -26,9 +26,11 @@ export const Photo = styled.image `
         width: 100%;
         height: 274px;
     }
-
 }
 `
-
+export const Styled = {
+    MainContent,
+    Photo,
+}
     
    

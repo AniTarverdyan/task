@@ -1,22 +1,29 @@
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
 import { Aside } from './components/aside';
-import Note from './components/aside/components/notes';
-import Users from './components/aside/components/users';
-import { Header } from './components/header';
-import Container from './container';
+import Note from './pages/Notes';
+import Users from './pages/Users';
+import Container from './style/container';
+import { Pages } from './const';
+import HomePage from './pages/HomePage';
 
-const App: React.FC = () => {
+const App: FC = () => {
   const [page, setPage] = useState('posts');
   const [filter, setFilter] = useState('popular');
 
-  const changePage = page === 'notes' ? <Note /> : page === 'users';
-
+  const changePage = () => {
+    switch (page) {
+      case Pages.notes:
+        return <Note />;
+      case Pages.users:
+        return <Users />;
+      default:
+        return <HomePage filter={filter} setFilter={setFilter}/>
+    }
+  }
   return (
     <Container>
       <Aside page={page} setPage={setPage} />
-      <div>
-        {changePage ? <Users /> : <Header filter={filter} setFilter={setFilter} />}
-      </div>
+        {changePage()}
     </Container>
   );
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import { Title, NotePage } from "./style";
+import { NotePage, Title } from "./style";
 
 const Users = () => {
     return <NotePage>

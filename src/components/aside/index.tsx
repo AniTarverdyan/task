@@ -1,50 +1,43 @@
 
-import { Section } from "./style";
 import shoppingListIcon from "../../Assets/icons/shopping-list.svg";
 import dashboardInterface from "../../Assets/icons/dashboard-interface.svg";
 import group from "../../Assets/icons/Group.svg"
+import { Styled } from "./style";
+import { FC } from "react";
+import { Pages } from "../../const";
 
-type Props = {
+interface IPage {
   page: string;
   setPage: (p: string) => void;
 };
 
-export const Aside: React.FC<Props> = props => {
+export const Aside: FC<IPage> = props => {
   const { setPage, page } = props;
   const onClick = (p: string) => () => {
     setPage(p);
   };
 
   return (
-    <Section>
-      <div>
-        <a href="/#"
-          className={page === 'posts' ? 'active' : ''}
+    <Styled.Section>
+        <div
+          className={page === Pages.posts ? Pages.active : ''}
           onClick={onClick('posts')}
         >
-          {'active' ? <span></span> : ''}
-          <img src={dashboardInterface} />
-        </a>
-      </div>
-      <div>
-        <a href="/#"
-          className={page === 'notes' ? 'active' : ''}
+          <Styled.Icons src={dashboardInterface} />
+        </div>
+        <div
+          className={page === Pages.notes ? Pages.active : ''}
           onClick={onClick('notes')}
         >
-          {'active' ? <span></span> : ''}
-          <img src={shoppingListIcon} />
-        </a>
-      </div>
-      <div>
-        <a href="/#"
-          className={page === 'users' ? 'active' : ''}
+          <Styled.Icons src={shoppingListIcon} />
+        </div>
+        <div
+          className={page === Pages.users ? Pages.active : ''}
           onClick={onClick('users')}
         >
-          {'active' ? <span></span> : ''}
-          <img src={group} />
-        </a>
-      </div>
-    </Section>
+          <Styled.Icons src={group} />
+        </div>
+    </Styled.Section>
   );
 };
 
